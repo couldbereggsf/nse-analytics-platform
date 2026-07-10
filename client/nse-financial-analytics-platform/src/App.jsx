@@ -50,7 +50,7 @@ function App() {
         <div className="footer-note">
           <span>Data simulated for demonstration · Phase 1 — Next: Spring Boot API</span>
           <a
-            href="https://github.com/couldbereggsf/nse-financial-analytics-platform"
+            href="https://github.com/couldbereggsf/nse-analytics-platform"
             target="_blank"
             rel="noopener noreferrer"
             className="github-link"
