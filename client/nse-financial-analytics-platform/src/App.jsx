@@ -48,7 +48,7 @@ function App() {
         <MarketSummary rows={rows} />
         <TickerTable rows={rows} />
         <div className="footer-note">
-          <span>Data simulated for demonstration · Phase 1</span>
+          <span>Data simulated for demonstration · Phase 1 — Next: Spring Boot API</span>
           <a
             href="https://github.com/couldbereggsf/nse-financial-analytics-platform"
             target="_blank"
