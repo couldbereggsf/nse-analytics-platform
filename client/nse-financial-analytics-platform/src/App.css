@@ -1,0 +1,376 @@
+/* ================================================================
+   NSE Financial Analytics Platform — Dark Luxury Theme
+   ================================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0c1a1d;
+  --surface: #152026;
+  --surface-2: #1c2d33;
+  --surface-3: #243540;
+  --accent: #C17C74;
+  --accent-lt: #d4958e;
+  --accent-dim: rgba(193, 124, 116, 0.14);
+  --text: #e8dcd4;
+  --text-muted: #9a8d84;
+  --text-faint: #635c57;
+  --border: rgba(220, 200, 180, 0.1);
+  --border-acc: rgba(193, 124, 116, 0.28);
+  --glass-bg: rgba(12, 26, 29, 0.65);
+  --glass-border: rgba(220, 200, 180, 0.12);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --radius-lg: 1.75rem;
+  --radius-md: 1.25rem;
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Courier New', monospace;
+  --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.app {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.container {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* ─── Header ─── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-icon {
+  font-size: 1.8rem;
+}
+
+.header h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-dim);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.update-info {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ─── Market Summary ─── */
+.market-summary {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.summary-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.summary-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+.summary-value.positive {
+  color: #4ade80;
+}
+
+.summary-value.negative {
+  color: #ef4444;
+}
+
+/* ─── Ticker Table ─── */
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.ticker-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ticker-table thead {
+  border-bottom: 2px solid var(--border);
+}
+
+.ticker-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.ticker-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.ticker-table tbody tr:hover {
+  background: var(--surface-2);
+}
+
+.ticker-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ticker-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticker-symbol {
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: var(--font-display);
+}
+
+.ticker-name {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.ticker-price {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.tick-up {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.tick-down {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Flash animations */
+.tick-flash-up {
+  animation: flashUp 0.45s ease;
+}
+
+.tick-flash-down {
+  animation: flashDown 0.45s ease;
+}
+
+@keyframes flashUp {
+  0% {
+    background: rgba(74, 222, 128, 0.3);
+  }
+
+  100% {
+    background: transparent;
+  }
+}
+
+@keyframes flashDown {
+  0% {
+    background: rgba(239, 68, 68, 0.3);
+  }
+
+  100% {
+    background: transparent;
+  }
+}
+
+/* ─── Footer ─── */
+.footer-note {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: var(--accent-lt);
+  transform: translateX(-2px);
+}
+
+.github-link i {
+  font-size: 1.1rem;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .market-summary {
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .summary-value {
+    font-size: 0.95rem;
+  }
+
+  .ticker-table th,
+  .ticker-table td {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .ticker-symbol {
+    font-size: 0.85rem;
+  }
+
+  .footer-note {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1rem;
+  }
+
+  .market-summary {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .summary-item {
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .ticker-table th,
+  .ticker-table td {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
